@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
       toastT-=dt;
       float dir=(right?1:0)-(left?1:0);steer+=(dir-steer)*Math.min(1,dt*5);
       if(!garage){
-        float acceleration=(stage==1&&!awd&&selected>=4?22:gas?58:0);
+        float acceleration=gas?(stage==1&&!awd&&selected>=4?22:58):0;
         float limit=tops[selected]*(stage==1&&!awd?0.52f:1f);
         if(gear==3&&!hand){speed+=((gas?acceleration:0)-(brake?110:0)-8-speed*.052f)*dt;speed=Math.max(0,Math.min(limit,speed));}
         else if(gear==1&&!hand){speed+=((gas?35:0)-(brake?95:0)-9-speed*.07f)*dt;speed=Math.max(0,Math.min(36,speed));}
